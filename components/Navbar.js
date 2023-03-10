@@ -5,28 +5,38 @@ import Image from 'next/image';
 // import tecknocore from './tecknocore.png';
 import { CiSearch } from "react-icons/ci";
 import Input from '@mui/material/Input';
-import InputAdornment from '@mui/material/InputAdornment';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import OutlinedInput from '@mui/material/OutlinedInput';
+// import InputAdornment from '@mui/material/InputAdornment';
+// import FormControl from '@mui/material/FormControl';
+// import InputLabel from '@mui/material/InputLabel';
+// import OutlinedInput from '@mui/material/OutlinedInput';
 import { Cart } from './';
-// import { useStateContext } from '../context/StateContext'
+import { useStateContext } from '../context/StateContext'
 
 const Navbar = () => {
-  // const { showCart, setShowCart, totalQuantities } = useStateContext();
+  const { showCart, setShowCart, totalQuantities } = useStateContext();
 
   return (
     <div className="navbar-container">
-      <p>
-        <Link href="/">Wilderness Warriors</Link>
+      <p className="logo">
+        <Link href="/">
+          Wilderness Warrior
+        {/* <Image
+          src={tecknocore}
+          alt="Picture of the author"
+          width={146}
+          height={40}
+          lazy="true"
+        /> */}
+        </Link>
       </p>
+{/*  */}
 
       <button type="button" className="cart-icon" onClick={() =>
       setShowCart(true)}>
-        {/*  onClick="/"> */}
         <AiOutlineShopping />
-        <span className="cart-item-qty">0</span>
+        <span className="cart-item-qty">{totalQuantities}</span>
       </button>
+      {showCart && <Cart />}
     </div>
   )
 }
