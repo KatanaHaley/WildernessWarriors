@@ -5,7 +5,7 @@ import React from 'react'
 import { Product, FooterBanner, HeroBanner } from '../components/index'
 import { client } from '../lib/client';
 import { urlFor } from '../lib/client';
-
+import Button from '@mui/material/Button';
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
@@ -13,8 +13,8 @@ const Blog = ({ posts }) => {
   
     return (
         <div>
-        <h1>Wilderness Warrior Blog</h1>
         <div className="blog-container">
+        <h1>Wilderness Warrior Tutorials</h1>
         {posts.length > 0 && posts.map(
           ({ _id, title = '', slug = '', _createdAt = '', image, paragraph1 }) =>
             slug && (
@@ -30,10 +30,10 @@ const Blog = ({ posts }) => {
                   </div>
                 </Link>{' '}
                 <div className="blog-intro-text">
-                    {paragraph1.split(" ").splice(0, 11).join(" ")}
+                    {paragraph1.split(" ").splice(0, 11).join(" ")}...
                     {console.log(paragraph1)}
                 </div>
-                    {<button>Read more</button>}                
+                <Button color="secondary" variant="outlined" size="small">Read more</Button>                
               </div>
             )
         )}

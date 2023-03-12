@@ -16,28 +16,20 @@ const Navbar = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
 
   return (
-    <div className="navbar-container">
+    <div className="subnavbar-container">
       <p className="logo">
-        <Link href="/">
-          Wilderness Warrior
-        {/* <Image
-          src={tecknocore}
-          alt="Picture of the author"
-          width={146}
-          height={40}
-          lazy="true"
-        /> */}
-        </Link>
+       
       </p>
  
 {/*  */}
 <p><Link href="/blog">Tutorials</Link></p>
+<input></input>
 <Link href="/blog">Tutorials</Link>
 <Link href="/blog">Tutorials</Link>
       <button type="button" className="cart-icon" onClick={() =>
       setShowCart(true)}>
-        <AiOutlineShopping />
-        <span className="cart-item-qty">{totalQuantities}</span>
+        {/* <AiOutlineShopping /> */}
+        {/* <span className="cart-item-qty">{totalQuantities}</span> */}
       </button>
       {showCart && <Cart />}
     </div>

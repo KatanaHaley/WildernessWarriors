@@ -37,13 +37,13 @@ const ProductDetails = ({ product, products }) => {
 
         <div className="product-detail-desc">
           <h1>{name}</h1>
-          <div className="reviews">
+          <div className="reviews" >
             <div>
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-              <AiFillStar />
-              <AiOutlineStar />
+              <AiFillStar size = '30px' />
+              <AiFillStar size = '30px'/>
+              <AiFillStar size = '30px'/>
+              <AiFillStar size = '30px'/>
+              <AiOutlineStar size = '30px' />
             </div>
             <p>
               (20)

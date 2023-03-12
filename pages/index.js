@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import React from 'react'
-import { Product, FooterBanner, HeroBanner } from '../components/index'
+import { Product, FooterBanner, HeroBanner, SubNavbar } from '../components/index'
 import { client } from '../lib/client';
 // import  Post  from './post/post'
 
@@ -10,8 +10,7 @@ const Home = ({ products, bannerData }) => {
   return (
     <div>
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
-      {/* {console.log(bannerData)} */}
-      <div className="products-heading">
+        <div className="products-heading">
         <h2>Best Selling Products</h2>
         <p>Top Selections</p>
       </div>
