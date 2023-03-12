@@ -221,10 +221,28 @@ align-items: center;
 }
 
 .blog-container {
-  margin: 80px 40px 20px 40px;
+  margin: 80px 0px 20px 0px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+  /* gap: 2%; */
+
+}
+
+.blog-post-title {
+  margin: 10px 0px 10px 0px;
+  padding: 10px 5px 10px 5px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: thin;
+  width: 100%;
+  /* background-color: rgba(0, 0, 0, 0.174); */
+  /* background-image: url('../public/images/aurora.jpg'); */
+  /* border-style: solid; */
+  /* border-color: black; */
+  cursor: pointer;
+/* align-items: baseline; */
 }
 
 .blog-container h1 {
@@ -248,8 +266,26 @@ align-items: center;
   display: flex;
   flex-direction: column;
   /* position: relative; */
-  width: 250px;
-  height: 150px;
+  width: fit;
+  height: 250px;
+}
+
+.blog-intro-text{
+  width: 100%;
+  margin-bottom: 10px;
+}
+.blog-page-card{
+  /* align-items: left; */
+  /* margin-top: 10px; */
+  display: flex;
+  flex-wrap: wrap;
+  margin: 10px 0px 20px 0px;
+  width: 300px;
+  
+}
+
+.blog-page-date{
+  margin-top: 10px
 }
 
 .footer-banner-img{

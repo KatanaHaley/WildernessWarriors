@@ -12,25 +12,33 @@ import Link from 'next/link'
 const Blog = ({ posts }) => {
   
     return (
-        <div className="blog-container">
+        <div>
         <h1>Wilderness Warrior Blog</h1>
-
-
+        <div className="blog-container">
         {posts.length > 0 && posts.map(
-          ({ _id, title = '', slug = '', publishedAt = '', image }) =>
+          ({ _id, title = '', slug = '', _createdAt = '', image, paragraph1 }) =>
             slug && (
-              <div key={_id}>
-               <img src={urlFor(image)} alt="headphones" className="blog-page-images" />
-
-                {console.log(image)}
+              <div key={_id} className="blog-page-card">
+               <img src={urlFor(image)} alt="blog images" className="blog-page-images" />
+                 <div className="blog-page-date">
+                 {new Date(_createdAt).toDateString()}
+                 </div>
+                 {console.log(_createdAt)}
                 <Link href="/post/[slug]" as={`/post/${slug.current}`}>
-                  {title}
+                  <div className="blog-post-title">
+                    {title} 
+                  </div>
                 </Link>{' '}
-                ({new Date(publishedAt).toDateString()})
+                <div className="blog-intro-text">
+                    {paragraph1.split(" ").splice(0, 11).join(" ")}
+                    {console.log(paragraph1)}
+                </div>
+                    {<button>Read more</button>}                
               </div>
             )
         )}
       </div>
+        </div>
     )
 }
 
