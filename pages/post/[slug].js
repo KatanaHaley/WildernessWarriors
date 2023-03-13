@@ -9,7 +9,7 @@ const Post = ({post}) => {
     <article>
       <div className="post-container">
 
-      <img src={urlFor(post.image)} alt="headphones" className="blog-banner-image" />
+      {/* <img src={urlFor(post?.image)} alt="headphones" className="blog-banner-image" /> */}
       <h1>{post?.title}</h1>
       <h2>{post?.subtitle}</h2>
       <p>{post?.paragraph1}</p>
