@@ -4,7 +4,7 @@ import { urlFor } from '../../lib/client';
 import Image from 'next/image'
 
 const Post = ({post}) => {
-  const {_createdAt, title, subtitle, callToAction, paragraph1, paragraph2, paragraph3, header1, header2, image } = post;
+  const { title, subtitle, callToAction, paragraph1, paragraph2, paragraph3, header1, header2, image } = post;
 
   // console.log(post._createdAt)
   return (
