@@ -11,7 +11,7 @@ const Post = ({post}) => {
     <article>
       <div className="post-container">
       {/* <div className="image-container"> */}
-            {/* <img src={urlFor(image)} className="blog-banner-image" /> */}
+            <img src={urlFor(image)} className="blog-banner-image" />
           {/* </div> */}
         
           {new Date(_createdAt).toDateString()}
