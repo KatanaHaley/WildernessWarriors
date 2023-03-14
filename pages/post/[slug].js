@@ -6,7 +6,7 @@ import Image from 'next/image'
 const Post = ({post}) => {
   const {_createdAt, title, subtitle, callToAction, paragraph1, paragraph2, paragraph3, header1, header2, image } = post;
 
-  console.log(image.asset)
+  // console.log(post._createdAt)
   return (
     <article>
       <div className="post-container">
@@ -14,7 +14,7 @@ const Post = ({post}) => {
             <img src={urlFor(image)} className="blog-banner-image" />
           {/* </div> */}
         
-          {new Date(_createdAt).toDateString()}
+          {/* <p>Published: {new Date(_createdAt).toDateString()}</p> */}
       <h1>{title}</h1>
       <h2>{subtitle}</h2>
       <p>{paragraph1}</p>
