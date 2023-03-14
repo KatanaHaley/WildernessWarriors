@@ -1,25 +1,30 @@
 import { client } from '../../lib/client';
-import React from 'react';
+import React, { useState } from 'react';
 import { urlFor } from '../../lib/client';
-
+import Image from 'next/image'
 
 const Post = ({post}) => {
-  
+  const {createdAt, title, subtitle, callToAction, paragraph1, paragraph2, paragraph3, header1, header2, image } = post;
+
+  console.log(post)
   return (
     <article>
       <div className="post-container">
+      <div className="image-container">
+            <img src={urlFor(post?.image) || urlFor(image)} className="blog-banner-image" />
+          </div>
+        
+        {/* <p>{post.createdAt}</p> */}
+      <h1>{title}</h1>
+      <h2>{subtitle}</h2>
+      <p>{paragraph1}</p>
 
-      {/* <img src={urlFor(post?.image)} alt="headphones" className="blog-banner-image" /> */}
-      <h1>{post?.title}</h1>
-      <h2>{post?.subtitle}</h2>
-      <p>{post?.paragraph1}</p>
+      <h3>{header1}</h3>
+      <p>{paragraph2}</p>
+      <h3>{header2}</h3>
+      <p>{paragraph3}</p>
 
-      <h3>{post?.header1}</h3>
-      <p>{post?.paragraph2}</p>
-      <h3>{post?.header2}</h3>
-      <p>{post?.paragraph3}</p>
-
-      <h2>{post?.callToAction}</h2>
+      <h2>{callToAction}</h2>
 
 
       </div>
