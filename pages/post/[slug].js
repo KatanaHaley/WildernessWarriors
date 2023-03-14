@@ -4,17 +4,17 @@ import { urlFor } from '../../lib/client';
 import Image from 'next/image'
 
 const Post = ({post}) => {
-  const {createdAt, title, subtitle, callToAction, paragraph1, paragraph2, paragraph3, header1, header2, image } = post;
+  const {_createdAt, title, subtitle, callToAction, paragraph1, paragraph2, paragraph3, header1, header2, image } = post;
 
-  console.log(post)
+  console.log(image.asset)
   return (
     <article>
       <div className="post-container">
-      <div className="image-container">
-            {/* <img src={urlFor(post?.image) || urlFor(image)} className="blog-banner-image" /> */}
-          </div>
+      {/* <div className="image-container"> */}
+            {/* <img src={urlFor(image)} className="blog-banner-image" /> */}
+          {/* </div> */}
         
-        {/* <p>{post.createdAt}</p> */}
+          {new Date(_createdAt).toDateString()}
       <h1>{title}</h1>
       <h2>{subtitle}</h2>
       <p>{paragraph1}</p>
