@@ -2,94 +2,97 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import React, { useState } from 'react'
-import { Product, FooterBanner, HeroBanner, SearchBar } from '../components/index'
+import { Product, FooterBanner, HeroBanner, SubNavbar } from '../components/index'
 import { client } from '../lib/client';
-import { urlFor } from '../lib/client';
-import Button from '@mui/material/Button';
-import { useRouter } from 'next/router'
-import Link from 'next/link'
+// import  Post  from './post/post'
 
-const search = ({ products, input }) => {
-  const [inputSearch, setInputSearch] = useState([]);
-  const { image, name, details, price } = products;
-
-
+const search = ({ products, bannerData }) => {
+  let results = products.map(product => product.name)
+  // const indResults = results.split('')
+  const [userSubmit, setUserSubmit] = useState('');
+  const [mySearchResult, setMySearchResult] = useState('')
 
   const handleChange = (e) => {
-      setInputSearch({ search: e.target.value });
-    };
+    let userInput = e.target.value
+     setUserSubmit(userInput)
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setInputSearch(inputSearch)
-
+    return userInput
   }
 
-  const searchProducts = () => {
+ 
 
-    products.map(
-    ({name, price, details, image, slug, _id, title }) => 
-    // console.log('search: ', inputSearch.search, name.toLowerCase())
-    inputSearch.search ==  name.toLowerCase() ? name : console.log("no match found")
-  )
+  const findResult = () => {
+    let searchResult = [];
+    for (let i = 0; i < results.length; i++) {
+      if(results[i].toLowerCase().includes(userSubmit) == true){
+        searchResult = results[i]
+        console.log('searched for ' + searchResult)
+      }
+
+      // let foundIndex = results.map(str => 
+      //   str.toLowerCase().includes(userSubmit) == true ? str == userSubmit: 'not found')
+      //   console.log(foundIndex)
     }
+    
+    return searchResult
+  }
+  // setMySearchResult(searchResult)
+// console.log(`${searchResult}`)
 
-    searchProducts()
+const handleSubmit = (userInput, mySearchResult) => {
+  // alert('A search was submitted: ' + userSubmit)
+  console.log('user input ' +  userSubmit)
+  setUserSubmit(userSubmit)
 
-  return (
-   
-      <div className="search-page-container">
-        <form>
-        <label htmlFor="search">Search</label>
-        <input placeholder="Search" onChange={handleChange}></input>
-        <button onClick={() => {handleSubmit}}>Submit</button>
-        </form>
-        <p>{inputSearch.search}</p>
-        {console.log(inputSearch.search)}
-        {products.length > 0 && products.map(
-            ({name, price, details, image, slug, _id, title }) => 
-            // console.log('search: ', inputSearch.search, name.toLowerCase())
-            {inputSearch.search ==  name.toLowerCase() ? 
-<p>match found</p>
-: <p>no match found</p>
-            }
-        )}
+  setMySearchResult(findResult())
+  console.log('mySearchResult' + mySearchResult)
+  event.preventDefault();
+  console.log('found ' + findResult())
+}
+
+
+return (
+  <div>
+    <div className="products-heading">
+      {<h2>Search: {userSubmit} </h2>}
+      
+      <form onSubmit={handleSubmit}>
+        <input type="text" onChange={handleChange} value={userSubmit}></input>
+        <button type="submit" onChange={handleSubmit} value="submit" onClick={findResult}>Submit</button>
+      
+      </form>
+    </div>
+    {/* {console.log()} */}
+    <div className="search-container">
+        Results:
+      <div className="search-container-column">
+        {`${mySearchResult}`}
+        {/* {results && results.map(searchResult => <p>{searchResult}</p>)} */}
+
+        {/* {results && results.map(searchResult => { searchResult })} */}
+
       </div>
-   
-  )
+    </div>
+    <div className="products-container">
+
+      {products?.map((product) => <Product key={product._id} product={product} />)}
+    </div>
+    {/* <Post /> */}
+    <FooterBanner footerBanner={bannerData && bannerData[0]} />
+  </div>
+)
 }
 
 export const getServerSideProps = async () => {
   const query = '*[_type == "product"]';
   const products = await client.fetch(query);
-  const productQuery = '*[_type == "name"]';
-  const productData = await client.fetch(productQuery);
+  const bannerQuery = '*[_type == "banner"]';
+  const bannerData = await client.fetch(bannerQuery);
+
   return {
-    props: { products, productData }
+    props: { products, bannerData }
   }
 }
 
 export default search
 
-// {posts.length > 0 && posts.map(
-//   ({ _id, title = '', slug = '', _createdAt = '', image, paragraph1 }) =>
-//     slug && (
-//       <div key={_id} className="blog-page-card">
-//        <img src={urlFor(image)} alt="blog images" className="blog-page-images" />
-//          <div className="blog-page-date">
-//          {new Date(_createdAt).toDateString()}
-//          </div>
-//          {/* {console.log(_createdAt)} */}
-//         <Link href="/post/[slug]" as={`/post/${slug.current}`}>
-//           <div className="blog-post-title">
-//             {title}
-//           </div>
-//         </Link>{' '}
-//         <div className="blog-intro-text">
-//             {paragraph1.split(" ").splice(0, 11).join(" ")}...
-//             {console.log(paragraph1)}
-//         </div>
-//         <Button color="secondary" variant="outlined" size="small">Read more</Button>
-//       </div>
-//     )
-// )}

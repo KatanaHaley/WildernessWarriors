@@ -26,7 +26,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-function BootstrapDialogTitle(props) {
+function BootstrapDialogTitle(props, products) {
   const { children, onClose, ...other } = props;
 
   return (
@@ -80,9 +80,9 @@ export default function SearchPopup() {
                 <InputBase 
                 placeholder="Search"
                 />
-                {/* <SearchPopup /> */}
             </Box>
     </BootstrapDialog>  
     </div>
   );
 }
+
