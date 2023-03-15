@@ -6,7 +6,7 @@ import Image from 'next/image'
 const Post = ({post}) => {
   const { title, subtitle, callToAction, paragraph1, paragraph2, paragraph3, header1, header2, image } = post;
 
-  // console.log(post._createdAt)
+  console.log(post)
   return (
     <article>
       <div className="post-container">

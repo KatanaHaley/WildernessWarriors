@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { AiOutlineShopping } from 'react-icons/ai';
 import Image from 'next/image';
@@ -11,9 +11,12 @@ import Input from '@mui/material/Input';
 // import OutlinedInput from '@mui/material/OutlinedInput';
 import { Cart } from './';
 import { useStateContext } from '../context/StateContext'
+import  SearchForm  from './SearchForm';
+import Dialog from '@mui/material/Dialog';
 
-const Navbar = () => {
+const SubNavbar = (product) => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
+  const [searchOpen, setSearchOpen] = useState(false)
 
   return (
     <div className="subnavbar-container">
@@ -22,18 +25,25 @@ const Navbar = () => {
       </p>
  
 {/*  */}
-<p><Link href="/blog">Tutorials</Link></p>
-<input></input>
+{/* <Dialog
+open={searchOpen}
+onClose={()=>setSearchOpen(false)}
+maxWidth="xs"
+PaperProps={{
+  sx:{
+    position:'fixed',
+    top:10 
+  }
+}}
+sx={{display:{xs:'block', sm:'none'}}}
+>
+
+</Dialog> */}
 <Link href="/blog">Tutorials</Link>
-<Link href="/blog">Tutorials</Link>
-      <button type="button" className="cart-icon" onClick={() =>
-      setShowCart(true)}>
-        {/* <AiOutlineShopping /> */}
-        {/* <span className="cart-item-qty">{totalQuantities}</span> */}
-      </button>
-      {showCart && <Cart />}
+
+    
     </div>
   )
 }
 
-export default Navbar
+export default SubNavbar

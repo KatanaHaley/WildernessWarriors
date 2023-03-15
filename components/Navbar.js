@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { AiOutlineShopping } from 'react-icons/ai';
 import Image from 'next/image';
-// import tecknocore from './tecknocore.png';
+import logo from './logo.png';
 import { CiSearch } from "react-icons/ci";
 import Input from '@mui/material/Input';
 // import InputAdornment from '@mui/material/InputAdornment';
@@ -11,6 +11,9 @@ import Input from '@mui/material/Input';
 // import OutlinedInput from '@mui/material/OutlinedInput';
 import { Cart } from './';
 import { useStateContext } from '../context/StateContext'
+import SearchForm from './SearchForm';
+import SearchPopup from './SearchPopup';
+import { Box } from '@mui/material'
 
 const Navbar = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
@@ -19,23 +22,28 @@ const Navbar = () => {
     <div className="navbar-container">
       <p className="logo">
         <Link href="/">
-          Wilderness Warrior
-        {/* <Image
-          src={tecknocore}
+        <Image
+          src={logo}
           alt="Picture of the author"
-          width={146}
-          height={40}
+          width={337}
+          height={137}
           lazy="true"
-        /> */}
+        />
         </Link>
       </p>
- 
-{/*  */}
-<p><Link href="/blog">Tutorials</Link></p>
-<Link href="/blog">Tutorials</Link>
-<Link href="/blog">Tutorials</Link>
+
+      {/*  */}
+      <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+
+        <SearchForm />
+      </Box>
+      <Box sx={{ flexGrow: 1 }} />
+      <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
+
+      <SearchPopup />
+      </Box>
       <button type="button" className="cart-icon" onClick={() =>
-      setShowCart(true)}>
+        setShowCart(true)}>
         <AiOutlineShopping />
         <span className="cart-item-qty">{totalQuantities}</span>
       </button>
