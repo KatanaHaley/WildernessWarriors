@@ -90,8 +90,26 @@ align-items: center;
 .search-container-column {
   display: flex;
   flex-direction: column;
-  flex-basis: 100%;
+  /* flex-basis: 100%; */
+  width: 100px;
   flex: 1;
+}
+.column {
+  float: left;
+  width: 63%;
+}
+
+.column p{
+  display: flex;
+  color: rgb(0, 0, 0);
+  float: right;
+  width: 100%;
+  align-items: end;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .search-container   li {
