@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css'
 import React from 'react'
 import { Product, FooterBanner, HeroBanner, SubNavbar } from '../components/index'
 import { client } from '../lib/client';
+import { Popup } from '../components/Popup'
 // import  Post  from './post/post'
 
 const Home = ({ products, bannerData }) => {
@@ -11,6 +12,7 @@ const Home = ({ products, bannerData }) => {
     <div>
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
         <div className="products-heading">
+          {/* <Popup /> */}
         <h2>Best Selling Products</h2>
         <p>Top Selections</p>
       </div>

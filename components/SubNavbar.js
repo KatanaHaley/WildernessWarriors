@@ -39,6 +39,11 @@ sx={{display:{xs:'block', sm:'none'}}}
 >
 
 </Dialog> */}
+<Link href="/blog">Survival Gear</Link>
+<Link href="/blog">Outdoor</Link>
+<Link href="/blog">Emergency Food</Link>
+<Link href="/blog">Bags & Kits</Link>
+
 <Link href="/blog">Tutorials</Link>
 
     

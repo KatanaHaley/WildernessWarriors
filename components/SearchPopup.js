@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
@@ -56,7 +56,7 @@ BootstrapDialogTitle.propTypes = {
 };
 
 export default function SearchPopup() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -65,12 +65,17 @@ export default function SearchPopup() {
     setOpen(false);
   };
 
+  useEffect(() => {const timer = setTimeout(() => {
+handleClickOpen   
+}, 2000);// I will be deleted while component is unmounting.
+   return () => clearTimeout(timer) }, []);
   return (
     <div>
       <Button variant="none" onClick={handleClickOpen}>
       <Search fontSize="large" mr={20} />
 
       </Button>
+
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
