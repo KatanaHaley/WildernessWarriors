@@ -35,13 +35,15 @@ const Navbar = () => {
       {/*  */}
       <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
 
-        <SearchForm />
+        {/* <SearchForm /> */}
       </Box>
       <Box sx={{ flexGrow: 1 }} />
       <Box sx={{ display: { xs: 'block', sm: 'none' } }}>
 
-      <SearchPopup />
+      {/* <SearchPopup /> */}
       </Box>
+      <Link href="/blog">Blog</Link>
+
       <button type="button" className="cart-icon" onClick={() =>
         setShowCart(true)}>
         <AiOutlineShopping />

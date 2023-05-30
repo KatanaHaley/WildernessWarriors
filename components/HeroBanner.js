@@ -9,12 +9,12 @@ const HeroBanner = ({ heroBanner }) => {
       
       
         <h1>{heroBanner.largeText2}</h1>
-        <h3>{heroBanner.midText}</h3>
+        {/* <h3>{heroBanner.midText}</h3> */}
         <h1>{heroBanner.largeText1}</h1>
 
-        <Link href={`/product/${heroBanner.product}`}>
+        {/* <Link href={`/product/${heroBanner.product}`}>
             <button type="button">{heroBanner.buttonText}</button>
-          </Link>
+          </Link> */}
 
         <div>
           <div className="desc">
