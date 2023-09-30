@@ -15,7 +15,7 @@ const Post = ({post}) => {
           {/* </div> */}
         
           {/* <p>Published: {new Date(_createdAt).toDateString()}</p> */}
-      <h1>{title}</h1>
+      {/* <h1>{title}</h1> */}
       <h2>{subtitle}</h2>
       <p>{paragraph1}</p>
 

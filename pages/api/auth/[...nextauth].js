@@ -1,17 +1,23 @@
+import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 
-GoogleProvider({
-  clientId: process.env.GOOGLE_CLIENT_ID,
-  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  profile(profile) {
-    return {
-      // Return all the profile information you need.
-      // The only truly required field is `id`
-      // to be able identify the account when added to a database
-        id,
-        // name,
-        email,
-        picture
-    }
-  },
-})
+export const authOptions = {
+  // Configure one or more authentication providers
+  providers: [
+    GoogleProvider({
+        clientId: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        profile(profile) {
+          return {
+            // Return all the profile information you need.
+            // The only truly required field is `id`
+            // to be able identify the account when added to a database
+         id,
+         email
+        }
+        },
+      })
+  ],
+}
+
+export default NextAuth(authOptions)
