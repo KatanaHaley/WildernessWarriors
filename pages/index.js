@@ -6,10 +6,15 @@ import { Product, FooterBanner, HeroBanner, SubNavbar } from '../components/inde
 import { client } from '../lib/client';
 import { Popup } from '../components/Popup'
 // import  Post  from './post/post'
+// import { useUser } from '@auth0/nextjs-auth0/client';
 
 const Home = ({ products, bannerData }) => {
+  // const { user, error, isLoading } = useUser();
+
   return (
     <div>
+    {/* <a href='/api/auth/login'>Login</a> */}
+{/* {console.log(user.name)} */}
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
         <div className="products-heading">
           {/* <Popup /> */}

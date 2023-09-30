@@ -1,8 +1,11 @@
+"use client"
+
 import React from 'react'
 import Head from 'next/head';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import SubNavbar from './SubNavbar';
+import { UserProvider } from '@auth0/nextjs-auth0/client';
 
 const Layout = ({ children }) => {
   return (
@@ -10,6 +13,7 @@ const Layout = ({ children }) => {
       <Head>
         <title>Wilderness Warriors</title>
       </Head>
+        <UserProvider>
       <header>
         <Navbar />
         <SubNavbar />
@@ -20,6 +24,7 @@ const Layout = ({ children }) => {
       <footer>
         <Footer /> 
       </footer>
+        </UserProvider>
     </div>
   )
 }

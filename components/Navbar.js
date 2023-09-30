@@ -20,6 +20,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar-container">
+      <h3><a href="/api/auth/login">Login</a></h3>
       <p className="logo">
         <Link href="/">
         <Image

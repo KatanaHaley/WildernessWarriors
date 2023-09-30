@@ -1,20 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-icons/ai';
 
 import { client, urlFor } from '../../lib/client';
 import { Product } from '../../components';
 import { useStateContext } from '../../context/StateContext';
+import {PortableText} from '@portabletext/react';
+
+
 
 const ProductDetails = ({ product, products }) => {
-  const { image, name, details, price } = product;
+  const { image, name, details, price, description } = product;
   const [index, setIndex] = useState(0);
   const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
+  const [userInput, setUserInput] = useState("");
+
+
 
   const handleBuyNow = () => {
     onAdd(product, qty);
 
     setShowCart(true);
   }
+  
+
 
   return (
     <div>
@@ -64,8 +72,22 @@ const ProductDetails = ({ product, products }) => {
             <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>Add to Cart</button>
             <button type="button" className="buy-now" onClick={handleBuyNow}>Buy Now</button>
           </div>
+          <div>
+            <div className="proddesc">
+            <h4>Description</h4>
+            <PortableText value={description} />
+            <pre>{JSON.stringify(description.body, null, 2)}</pre>
+            </div>
+          </div>
         </div>
+
+
+        <p># of customer reviews</p>
+            <button><h2>Write A Review</h2></button>
+        
       </div>
+
+
 
       <div className="maylike-products-wrapper">
           <h2>You may also like</h2>
@@ -76,6 +98,7 @@ const ProductDetails = ({ product, products }) => {
             </div>
           </div>
       </div>
+     
     </div>
   )
 }
