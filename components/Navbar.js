@@ -22,7 +22,8 @@ const Navbar = () => {
     <div className="navbar-container">
       <h3><a href="/api/auth/login">Login</a></h3>
       <p className="logo">
-        <Link href="/">
+        <Link href="/" passHref>
+          <a>
         <Image
           src={logo}
           alt="Picture of the author"
@@ -30,6 +31,7 @@ const Navbar = () => {
           height={137}
           lazy="true"
         />
+          </a>
         </Link>
       </p>
 
@@ -43,7 +45,7 @@ const Navbar = () => {
 
       {/* <SearchPopup /> */}
       </Box>
-      <Link href="/blog">Blog</Link>
+      <Link href="/blog" passHref>Blog</Link>
 
       <button type="button" className="cart-icon" onClick={() =>
         setShowCart(true)}>

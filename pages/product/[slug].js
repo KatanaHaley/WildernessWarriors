@@ -76,7 +76,7 @@ const ProductDetails = ({ product, products }) => {
             <div className="proddesc">
             <h4>Description</h4>
             <PortableText value={description} />
-            <pre>{JSON.stringify(description.body, null, 2)}</pre>
+            {/* <pre>{JSON.stringify(description.body, null, 2)}</pre> */}
             </div>
           </div>
         </div>

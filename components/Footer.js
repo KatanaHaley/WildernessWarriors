@@ -8,7 +8,8 @@ const Footer = () => {
   return (
     <div className="footer-container">
        <p className="logo">
-        <Link href="/">
+        <Link href="/" passHref>
+          <a>
         <Image
           src={logo}
           alt="wilderness warrior logo"
@@ -16,6 +17,7 @@ const Footer = () => {
           height={137}
           lazy="true"
         />
+          </a>
         </Link>
       </p>
       <p>2023 Wilderness Warriors All Rights Reserved</p>
