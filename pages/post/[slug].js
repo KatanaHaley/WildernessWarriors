@@ -1,30 +1,26 @@
 import { client } from '../../lib/client';
 import React, { useState } from 'react';
 import { urlFor } from '../../lib/client';
-import Image from 'next/image'
+import Image from 'next/image';
+import {PortableText} from '@portabletext/react';
+
 
 const Post = ({ post }) => {
-  const { title, callToAction, paragraph1, paragraph2, paragraph3, header1, header2, image } = post;
+  const { title, _createdAt, callToAction, paragraph1, paragraph2, paragraph3, header1, header2, image, body } = post;
 
   console.log('this is the post component: ' + post.title)
   return (
     <article>
       <div className="post-container">
-      {/* <div className="image-container"> */}
+      <div className="image-container">
             <img src={urlFor(image)} className="blog-banner-image" />
-          {/* </div> */}
+          </div>
         
-          {/* <p>Published: {new Date(_createdAt).toDateString()}</p> */}
-      <h1>{title}</h1>
-      {/* <h2>{subtitle}</h2> */}
-      <p>{paragraph1}</p>
-
-      <h3>{header1}</h3>
-      <p>{paragraph2}</p>
-      <h3>{header2}</h3>
-      <p>{paragraph3}</p>
-
-      <h2>{callToAction}</h2>
+          <p>Published: {new Date(_createdAt).toDateString()}</p>
+          <h2>{title}</h2>
+          <PortableText value={body} />
+          {console.log(post.body)}
+            {/* <pre>{JSON.stringify(body.body, null, 2)}</pre> */}
 
 
       </div>

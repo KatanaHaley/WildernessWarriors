@@ -36,29 +36,14 @@ export default {
             }
         },
         {
-            name: 'paragraph1',
-            title: 'Paragraph1',
-            type: 'string',
-        },
-        {
-            name: 'header1',
-            title: 'Header1',
-            type: 'string',
-        },
-        {
-            name: 'paragraph2',
-            title: 'Paragraph2',
-            type: 'string',
-        },
-        {
-            name: 'header2',
-            title: 'Header2',
-            type: 'string',
-        },
-        {
-            name: 'paragraph3',
-            title: 'Paragraph3',
-            type: 'string',
+            name: 'body',
+            title: 'Body',
+            type: 'array',
+            of: [
+                {
+                    type: 'block'
+                }
+            ]
         },
         {
             name: 'callToAction',
