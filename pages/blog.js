@@ -23,7 +23,7 @@ const Blog = ({ posts }) => {
                  <div className="blog-page-date">
                  {new Date(_createdAt).toDateString()}
                  </div>
-                 {/* {console.log(_createdAt)} */}
+                 {/* {console.log(posts.title)} */}
                 <Link href="/post/[slug]" as={`/post/${slug.current}`}>
                   <div className="blog-post-title">
                     {title} 
