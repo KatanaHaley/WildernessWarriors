@@ -16,23 +16,31 @@ const Blog = ({ posts }) => {
         <div className="blog-container">
         <h1>Wilderness Warrior Tutorials</h1>
         {posts.length > 0 && posts.map(
-          ({ _id, title = '', slug = '', _createdAt = '', image, paragraph1 }) =>
+          ({ _id, title = '', slug = '', _createdAt = '', image, subtitle, category, body }) =>
             slug && (
               <div key={_id} className="blog-page-card">
                <img src={urlFor(image)} alt="blog images" className="blog-page-images" />
                  <div className="blog-page-date">
                  {new Date(_createdAt).toDateString()}
                  </div>
-                 {/* {console.log(posts.title)} */}
                 <Link href="/post/[slug]" as={`/post/${slug.current}`}>
                   <div className="blog-post-title">
                     {title} 
                   </div>
                 </Link>{' '}
+                  <div>
+                    <Button color="info"><h4>Category: {category}</h4></Button>
+                  </div>
+                  {subtitle}
                 <div className="blog-intro-text">
-                    {paragraph1.split(" ").splice(0, 11).join(" ")}...
+                    {/* {body.split(" ").splice(0, 11).join(" ")}... */}
                 </div>
-                <Button color="secondary" variant="outlined" size="small">Read more</Button>                
+                {/* {category} */}
+
+                <Link href="/post/[slug]" as={`/post/${slug.current}`}>
+                <Button color="secondary" variant="outlined" size="small">Read more</Button>     
+                </Link>{' '}
+           
               </div>
             )
         )}
