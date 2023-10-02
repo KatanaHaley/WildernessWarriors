@@ -24,14 +24,13 @@ const Blog = ({ posts }) => {
                  {new Date(_createdAt).toDateString()}
                  </div>
                  {/* {console.log(_createdAt)} */}
-                {/* <Link href="/post/[slug]" as={`/post/${slug.current}`}>
+                <Link href="/post/[slug]" as={`/post/${slug.current}`}>
                   <div className="blog-post-title">
                     {title} 
                   </div>
-                </Link>{' '} */}
+                </Link>{' '}
                 <div className="blog-intro-text">
                     {paragraph1.split(" ").splice(0, 11).join(" ")}...
-                    {console.log(paragraph1)}
                 </div>
                 <Button color="secondary" variant="outlined" size="small">Read more</Button>                
               </div>

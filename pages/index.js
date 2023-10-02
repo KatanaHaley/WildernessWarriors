@@ -13,11 +13,11 @@ const Home = ({ products, bannerData }) => {
 
   return (
     <div>
-    {/* <a href='/api/auth/login'>Login</a> */}
-{/* {console.log(user.name)} */}
+      {/* <a href='/api/auth/login'>Login</a> */}
+      {/* {console.log(user.name)} */}
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
-        <div className="products-heading">
-          {/* <Popup /> */}
+      <div className="products-heading">
+        {/* <Popup /> */}
         <h2>Best Selling Products</h2>
         <p>Top Selections</p>
       </div>
