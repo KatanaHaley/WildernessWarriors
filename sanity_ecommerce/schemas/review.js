@@ -5,7 +5,7 @@ export default {
     type: "document",
     fields: [
       {
-        name: "review",
+        name: "reviewText",
         title: "Review Text",
         type: "string",
       },

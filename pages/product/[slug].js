@@ -5,16 +5,17 @@ import { client, urlFor } from '../../lib/client';
 import { Product } from '../../components';
 import { useStateContext } from '../../context/StateContext';
 import {PortableText} from '@portabletext/react';
+import ReviewSection from '../../components/ReviewSection';
+// import FormField from 'part:@sanity/components/formfields/default'
 
 
 
-const ProductDetails = ({ product, products }) => {
+const ProductDetails = ({ product, products, reviewData }) => {
   const { image, name, details, price, description } = product;
+  // const { review, createdAt, userName } = reviews;
   const [index, setIndex] = useState(0);
   const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
-  const [userInput, setUserInput] = useState("");
-
-
+  
 
   const handleBuyNow = () => {
     onAdd(product, qty);
@@ -22,7 +23,6 @@ const ProductDetails = ({ product, products }) => {
     setShowCart(true);
   }
   
-
 
   return (
     <div>
@@ -81,10 +81,8 @@ const ProductDetails = ({ product, products }) => {
           </div>
         </div>
 
-
-        <p># of customer reviews</p>
-            <button><h2>Write A Review</h2></button>
-        
+        <ReviewSection />
+                
       </div>
 
 
@@ -128,14 +126,16 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params: { slug }}) => {
   const query = `*[_type == "product" && slug.current == '${slug}'][0]`;
   const productsQuery = '*[_type == "product"]'
-  
+  const reviewQuery = '*[_type == "review"]'
+
   const product = await client.fetch(query);
   const products = await client.fetch(productsQuery);
+  const reviewData = await client.fetch(reviewQuery)
 
   // console.log(product);
 
   return {
-    props: { products, product }
+    props: { products, product, reviewData }
   }
 }
 

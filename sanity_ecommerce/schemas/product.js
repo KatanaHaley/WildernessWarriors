@@ -1,3 +1,6 @@
+import { ReviewStringInput } from '../../components/ReviewStringInput';
+
+
 export default {
     name: 'product',
     title: 'Product',
@@ -44,7 +47,11 @@ export default {
                 {
                     type: 'block'
                 }
-            ]
+            ],
+            components: {
+                input: ReviewStringInput
+              }
         },
+        
     ],
 }

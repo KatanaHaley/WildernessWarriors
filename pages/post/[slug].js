@@ -6,7 +6,7 @@ import {PortableText} from '@portabletext/react';
 
 
 const Post = ({ post }) => {
-  const { title, _createdAt, callToAction, paragraph1, paragraph2, paragraph3, header1, header2, image, body } = post;
+  const { title, _createdAt, callToAction, image, body } = post;
 
   console.log('this is the post component: ' + post.title)
   return (
